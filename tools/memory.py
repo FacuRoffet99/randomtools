@@ -1,3 +1,7 @@
+'''
+This code was stolen (and slightly adapted) from https://stackoverflow.com/questions/24455615/python-how-to-display-size-of-all-variables
+'''
+
 import sys
 
 def sizeof_fmt(num, suffix='B'):
@@ -14,7 +18,6 @@ def ram_usage(max_vars=None):
     
     max_vars: int, maximum number of variables to display (default: None)
     '''
-    j = 5
     for name, size in sorted(((name, sys.getsizeof(value)) for name, value in list(
                               globals().items())), key= lambda x: -x[1])[:max_vars]:
         print("{:>30}: {:>8}".format(name, sizeof_fmt(size)))
